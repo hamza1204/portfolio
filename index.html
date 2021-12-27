@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <script type="x-shader/x-vertex" id="vertexshader">
+
+        varying vec2 vUv;
+
+        void main() {
+
+            vUv = uv;
+
+            gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+        }
+
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragmentshader">
+
+        uniform sampler2D baseTexture;
+        uniform sampler2D bloomTexture;
+
+        varying vec2 vUv;
+
+        void main() {
+
+            gl_FragColor = ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) );
+
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul id="sticky">
+        <div id="absluteline" class="line"></div>
+        <li id="home" onclick="onclicks(0)">
+            <span class="mleft"> Home</span>
+            <div id="homedenotion" class="commonchange"></div>
+        </li>
+        <li id="about" onclick="onclicks(1)">
+            <span class="mleft">About</span>
+            <div id="aboutdenotion" class="stickyClass"></div>
+        </li>
+        <li id="projects" onclick="onclicks(2)">
+            <span class="mleft">Projects</span>
+            <div id="projectsdenotion" class="stickyClass"></div>
+        </li>
+        <li id="skill" onclick="onclicks(3)">
+            <span class="mleft">Skills</span>
+            <div id="skilldenotion" class="stickyClass"></div>
+        </li>
+        <li id="contact" onclick="onclicks(4)">
+            <span class="mleft">Contact</span>
+            <div id="contactdenotion" class="stickyClass"></div>
+        </li>
+    </ul>
+
+
+    <div id="first-section" class="intro-page">
+        <div class="intro-main">
+            <span class="name-text">My Name Is Muhammad Bilal Khan</span>
+            <p class="mt-1 name-text ">I’m an <span class="artistic">Artistic</span> Web Developer</p>
+        </div>
+    </div>
+
+    <div id="second-section" class="about-page">
+        <div class="about-main">
+            <span class="about-text">I’m based in Karachi, Pakistan. During my <span> experience of over</span> 5 years,
+                I have worked on many different kinds of projects. I like to develop <span
+                    class="neon">user-friendly</span> and
+                <span class="neon2">state-of-the-art</span> web applications.</span>
+        </div>
+    </div>
+
+
+    <div class="container" id="third-section">
+        <div class="slider-outer">
+            <img onclick="previousImgSub()" id="goleft" class="left-arrow" src="/Vector 2.png" alt="">
+            <div class="slider-inners" id="slider-inner">
+                <!-- <div id="demo">
+                    <a href="https://source.unsplash.com/" target="_blank">
+                        <div class="active"></div>
+                        <h2 class='content'>Lorem ipsum dolor, sit a </h2>
+                    </a>
+                </div>
+                <div id="demo2">
+                    <a href="https://source.unsplash.com/" target="_blank">
+                        <div class="active2"></div>
+                        <h2 class="demo2content">hello hello hello</h2>
+                    </a>
+                </div>
+                <div id="demo3">
+                    <a href="https://source.unsplash.com/" target="_blank">
+
+                        <div class="active3"></div>
+                        <h2 class="demo3content">These are my projects These are my projects </h2>
+                    </a>
+                </div>
+                <div id="demo4">
+                    <a href="https://source.unsplash.com/" target="_blank">
+                        <div class="active4"></div>
+                        <h2 class="demo4content">
+                            Demo 4 content Demo 4 content
+                        </h2>
+                    </a>
+                </div> -->
+            </div>
+            <img onclick="previousImgPlus()" id="goright" class="right-arrow" src="/Vector 1.png" alt="">
+        </div>
+    </div>
+
+
+
+
+    <div class="main-div" id="fourth-section">
+        <div class="flexed">
+            <div class="sub-div html" id="t1">
+                <p class="para">HTML</p>
+
+                <div id="displayhtml"></div>
+
+            </div>
+
+            <div class="sub-div css" id="t2">
+
+                <p class="para"> CSS</p>
+                <video src="/c.mp4" id="displaycss" muted autoplay loop></video>
+
+            </div>
+            <div class="sub-div javascript" id="t3">
+                <p class="para"> JAVASCRIPT</p>
+
+
+                <img id="displayjs" src="/bg1.jpg" alt="" width="100%" height="100%">
+
+            </div>
+            <div class="sub-div nodejs" id="t4">
+                <p class="para"> NODEJS</p>
+
+                <img id="displaynodejs" src="/bg1.jpg" alt="" width="100%" height="100%">
+
+            </div>
+            <div class="sub-div threejs" id="t5">
+                <p class="para"> THREEJS</p>
+
+                <img id="displaythreejs" src="/bg1.jpg" alt="" width="100%" height="100%">
+
+
+            </div>
+            <div class="sub-div reactjs" id="t6">
+                <p class="para"> react.js</p>
+
+                <img id="displayreactjs" src="/react.gif" alt="" width="100%" height="100%">
+
+            </div>
+            <div class="sub-div babylonjs" id="t7">
+                <p class="para"> BABYLONJS</p>
+
+                <img id="displaybabylonjs" src="/Babylon Cloth Remove Anchors.gif" alt="" width="100%" height="100%">
+
+
+            </div>
+            <div class="sub-div webgl" id="t8">
+                <p class="para">WEBGL</p>
+
+                <img id="displaywebgl" src="/bg1.jpg" alt="" width="100%" height="100%">
+
+
+            </div>
+            <div class="sub-div mysql" id="t9">
+                <p class="para"> MYSQL</p>
+
+                <img id="displaymysql" src="/bg1.jpg" alt="" width="100%" height="100%">
+
+
+            </div>
+        </div>
+    </div>
+    <!-- <div id="video" style="display: none;"></div> -->
+
+
+
+    <footer id="fifth-section" class="footer">
+        <div class="heading">
+            <div class="sub-heading">
+                <h3>Thank you for scrolling all the way!</h3>
+                <h1>Give me a tinkle <img class="imgSize" src="/Call 1.png" alt="">. I would <span id="love"> love
+                    </span>to hear from you</h1>
+            </div>
+        </div>
+
+
+        <div class="main">
+            <div class="sub">
+                <a href="https://www.linkedin.com/" target="_blank">
+                    <div id="linkedIn">
+                        <img class="two-pics" src="assets/social-media-icon/icons8-linkedin-2-128.png" alt="">
+                    </div>
+                </a>
+
+
+            </div>
+            <div class="sub">
+                <a href="https://www.instagram.com/ " target="_blank">
+                    <div id="instagram">
+                        <img class="two-pics" src="assets/social-media-icon/icons8-instagram-192.png" alt="">
+                    </div>
+                </a>
+            </div>
+            <div class="sub">
+                <a href="https://www.google.com/intl/en-GB/gmail/about/" target="_blank">
+                    <div id="mail">
+                        <img class="two-pics" src="aseets/social-media-icon/icons8-gmail-logo-144.png " alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="container" style="display: none;">
+        <video id="video" muted loop>
+            <source src="/Matrix Raining Code.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src="/Matrix Raining Code.mp4">
+        </video>
+    </div>
+
+    </button>
+    <!-- <button id='play' onclick="playMusic()" style="position: fixed; top: 0px;">play</button> -->
+    <audio id="audio" loop src="/travis.mp3" style="display: none;"></audio>
+    <div class="iconposition musicpause" id="musicIcon" onclick="pausedMusic()">
+
+    </div>
+    <div class="fixedPage" id="fixed">
+
+        <h1 class="quote">
+            &#8220;A picture is worth a thousand words. <br />An <div class="effect-shine">interface</div> is worth
+            a
+            thousand pictures.&#8221;
+        </h1>
+
+        <div class="relative">
+            <div class="spinner-box" id="loading">
+                <div class="leo-border-1">
+                    <div class="leo-core-1"></div>
+                </div>
+                <div class="leo-border-2">
+                    <div class="leo-core-2"></div>
+                </div>
+            </div>
+            <div class="neon" id="buttons">
+                <div class="enterbutton" onclick="enterSite()">Click to Enter</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js "
+        integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q=="
+        crossorigin=" anonymous " referrerpolicy="no-referrer "></script>
+    <script src="three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/shaders/CopyShader.js"></script>
+
+    <script src="/dat.gui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.js"
+        integrity="sha512-+E0UhA8ib3H5AlREMX1I0mc3R7HMkQYH+hkkfW47aLGMnVJwod+jJ2jxe94xYyUdqPs9AFDHUxKnJzScEP5cmA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="/css/examples.css?ver=1.0.0" />
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+        integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+
+
+
+    <script src="/lib/enable3d/enable3d.ammoPhysics.0.24.0.min.js"></script>
+
+    <!-- <script src="bloom.js"></script> -->
+    <script src="script.js "></script>
+</body>
+
+</html>
